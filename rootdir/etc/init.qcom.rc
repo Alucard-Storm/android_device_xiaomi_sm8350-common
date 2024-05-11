@@ -233,6 +233,7 @@ on post-fs-data
     # Thermal Configs
     chmod 0664 /sys/devices/virtual/thermal/thermal_message/sconfig
     chown system system /sys/devices/virtual/thermal/thermal_message/sconfig
+    write /sys/devices/virtual/thermal/thermal_message/sconfig 0
 
     setprop vold.post_fs_data_done 1
 

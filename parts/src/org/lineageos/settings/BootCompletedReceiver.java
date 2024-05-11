@@ -26,6 +26,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
     private static final String DC_DIMMING_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure";
     private static final boolean DEBUG = true;
+    private static final String PERF_MODE_ENABLE_KEY = "perf_mode";
+    private static final String PERF_MODE_NODE = "/sys/devices/virtual/thermal/thermal_message/sconfig";
 
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -49,5 +51,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         FileUtils.enableService(context);
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
         FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "1" : "0");
+        
+        // Performance Mode
+        boolean PerfModeEnabled = sharedPrefs.getBoolean(PERF_MODE_ENABLE_KEY, false);
+        FileUtils.writeLine(PERF_MODE_NODE, PerfModeEnabled ? "10" : "0");
     }
 }
