@@ -338,7 +338,14 @@ libOmxCore \
 libOmxEvrcEnc \
 libOmxG711Enc \
 libOmxQcelp13Enc \
-libstagefrighthw
+libstagefrighthw \
+android.hardware.media.c2@1.1.vendor \
+android.hardware.media.c2@1.2.vendor \
+libavservices_minijail.vendor \
+libavservices_minijail_vendor \
+libcodec2_hidl@1.2.vendor \
+libcodec2_soft_common.vendor \
+libstagefright_softomx.vendor
 
 PRODUCT_COPY_FILES += \
 $(LOCAL_PATH)/media/init.qti.media.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.media.sh \
